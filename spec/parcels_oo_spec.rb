@@ -12,5 +12,8 @@ describe Parcel do
     test_parcel.volume.should eq 125
   end
 
-
+  it 'places volume into correct shipping category' do
+    test_parcel = Parcel.new(5, 5, 5)
+    test_parcel.shipping_category.should eq "A"
+  end
 end
