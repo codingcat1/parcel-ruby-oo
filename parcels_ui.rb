@@ -9,6 +9,8 @@ def main_menu
     main_choice = gets.chomp
     if main_choice == 'p'
       add_parcel
+    elsif main_choice == "v"
+      view_costs
     elsif main_choice == 'x'
       puts "Ok thanks, bye"
       exit
@@ -18,13 +20,26 @@ end
 
 def add_parcel
   puts "Enter the height of your package (in cm)"
-  input_height = gets.chomp
+  input_height = gets.chomp.to_i
   puts "Please enter its width (in cm)"
-  input_width = gets.chomp
+  input_width = gets.chomp.to_i
   puts "Now please enter the length (in cm)"
-  input_length = gets.chomp
+  input_length = gets.chomp.to_i
   @dimensions << Parcel.new(input_height, input_width, input_length)
   puts "Thank you, now we'll calculate your cost...\n\n"
+
+  @dimensions.each do |parcel|
+    puts parcel.cost_to_ship
+  end
+end
+puts "\n"
+
+def view_costs
+  puts "Here are your shipping costs:"
+  @dimensions.each do |parcel|
+    puts parcel.cost_to_ship
+  end
+  puts "\n"
 end
 
 main_menu
