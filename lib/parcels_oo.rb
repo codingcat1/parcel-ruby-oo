@@ -4,4 +4,8 @@ class Parcel
     @width = width
     @length = length
   end
+
+  def volume
+    @height * @width * @length
+  end
 end
