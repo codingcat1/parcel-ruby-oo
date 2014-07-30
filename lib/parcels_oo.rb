@@ -9,13 +9,13 @@ class Parcel
     @height * @width * @length
   end
 
-  def shipping_category
+  def cost_to_ship
     if volume <= 125
-      "A"
+      (volume * 0.025).round(2)
     elsif volume > 125 && volume < 250
-      "B"
+      (volume * 0.05).round(2)
     else
-      "C"
+      (volume * 0.075).round(2)
     end
   end
 end
